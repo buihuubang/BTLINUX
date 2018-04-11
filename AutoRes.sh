@@ -1,9 +1,9 @@
 clear
 echo "Hãy chắc chắn bạn đã tạo kho trên github.com"
 echo "Xin hãy chọn chức năng:"
-echo "- Nhập vào 1 để tạo kho mới tại thư mục hiện hành"
+echo "- Nhập vào 1 để tạo kho mới tại thư mục hiện hành, nếu chưa thấy file thì nhập tiếp 2"
 echo "- Nhập vào 2 để tự động push lên github"
-echo "- Kiểm tra xem file đã được đẩy lên chưa? nếu thấy hiện màu đỏ các file hãy chọn tùy chọn 2"
+echo "- Nhập vào 3 để lưu thông tin trong kho thuận tiện cho lần push tiếp theo(đã tạo kho)"
 read -p "Nhập vào chức năng:" chucnang
 case $chucnang in 
 1)
@@ -24,8 +24,13 @@ case $chucnang in
 	git push -f origin master
 	echo "Đẩy file lên thành công";;
 3)
-	git status
-	echo "Hãy chạy lại chương trình";;
+	git config credential.helper store
+	read -p "Nhập vào email github của bạn:" email
+	read -p "Nhập vào username github của bạn:" username
+	git config user.email = "$email"
+	git config user.name = "$username"
+	git push -f origin master
+	echo "Thành công!";;
 *)
 	echo "Nhập sai chức năng!"
 esac 
