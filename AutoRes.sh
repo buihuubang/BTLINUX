@@ -8,7 +8,7 @@ echo "- Nhập vào 3 để lưu thông tin trong kho thuận tiện cho lần p
 read -p "Nhập vào chức năng:" chucnang
 case $chucnang in 
 1)
-	echo "#MY PROJECT" > README.md
+	echo "# MY PROJECT" > README.md
 	git init
 	git add README.md
 	read -p "Nhập vào tin nhắn của bạn để push lên github:" tinnhan
