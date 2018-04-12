@@ -1,3 +1,4 @@
+# bang 
 clear
 echo "Hãy chắc chắn bạn đã tạo kho trên github.com"
 echo "Xin hãy chọn chức năng:"
